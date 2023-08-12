@@ -40,7 +40,13 @@ ggplot2::ggplot(data=data_filtered,
                 )) + 
   ggplot2::geom_line() +
   ggplot2::facet_wrap(~country) +
-  ggplot2::geom_point()
+  ggplot2::geom_point() +
+  ggplot2::labs(
+    x = "GDP per Capita",
+    y = "CO2 per Capita",
+    title = "GDP & CO2"
+  ) +
+  ggplot2::theme_bw()
 
 
 
