@@ -15,10 +15,20 @@ data <- data_raw |>
     gdp_per_capita = gdp/population
   )
 
-ggplot2::ggplot(data=data,
-                aes(
+data_japan <- data |> 
+  dplyr::filter(
+    country == "Japan"
+  )
+
+ggplot2::ggplot(data=data_japan,
+                ggplot2::aes(
                   x = gdp_per_capita,
                   y = co2_per_capita
                 )) + 
   ggplot2::geom_line()
+
+
+
+
+
 
