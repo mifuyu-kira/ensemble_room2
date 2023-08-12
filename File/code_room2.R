@@ -20,12 +20,27 @@ data_japan <- data |>
     country == "Japan"
   )
 
+data_filtered <- data |> 
+  dplyr::filter(
+    country == c("Japan","United States")
+  )
+
 ggplot2::ggplot(data=data_japan,
                 ggplot2::aes(
                   x = gdp_per_capita,
                   y = co2_per_capita
                 )) + 
   ggplot2::geom_line()
+
+ggplot2::ggplot(data=data_filtered,
+                ggplot2::aes(
+                  x = gdp_per_capita,
+                  y = co2_per_capita,
+                  color = country
+                )) + 
+  ggplot2::geom_line() +
+  ggplot2::facet_wrap(~country) +
+  ggplot2::geom_point()
 
 
 
